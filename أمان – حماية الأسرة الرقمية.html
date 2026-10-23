@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أمان – حماية الأسرة الرقمية</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f7f5;--card:#fff;--ink:#14292e;--muted:#5b6f73;--line:#d5e0dd;--pri:#0e7c86;--pri-ink:#fff;--warn:#b7791f;--bad:#b83a3a;--good:#1f7a4d;--soft:#e3f1ef;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1719;--card:#14262a;--ink:#e5f0ee;--muted:#93aaad;--line:#27403f;--pri:#3cc4cf;--pri-ink:#062a2e;--warn:#f0b64a;--bad:#f07a7a;--good:#5fd09a;--soft:#18363a;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0c1719;--card:#14262a;--ink:#e5f0ee;--muted:#93aaad;--line:#27403f;--pri:#3cc4cf;--pri-ink:#062a2e;--warn:#f0b64a;--bad:#f07a7a;--good:#5fd09a;--soft:#18363a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.8 Tajawal,system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0;flex-wrap:wrap}
+.logo{font-weight:800;font-size:1.5rem;display:flex;align-items:center;gap:8px}
+.logo i{width:30px;height:34px;background:var(--pri);clip-path:polygon(50% 0,100% 18%,100% 55%,50% 100%,0 55%,0 18%);display:inline-block}
+nav{display:flex;gap:16px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-weight:500}
+nav a:hover{color:var(--pri)}
+.who{display:flex;align-items:center;gap:8px;font-size:.92rem;color:var(--muted)}
+select,input,button{font:inherit}
+select,input[type=number]{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.hero{padding:44px 0 26px}
+h1{font-size:clamp(1.9rem,5vw,3rem);line-height:1.3;margin:0 0 10px;font-weight:800}
+.hero p{color:var(--muted);max-width:56ch;margin:0}
+.rule{margin-top:22px;border-inline-start:5px solid var(--pri);background:var(--soft);padding:12px 16px;border-radius:8px;max-width:64ch}
+section{padding:30px 0}
+h2{font-size:1.5rem;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 18px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin:0 0 8px;font-size:1.1rem}
+.btn{background:var(--pri);color:var(--pri-ink);border:0;border-radius:8px;padding:8px 16px;font-weight:700;cursor:pointer}
+.btn.alt{background:none;color:var(--ink);border:1px solid var(--line)}
+.btn.bad{background:var(--bad);color:#fff}
+.btn:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--pri);outline-offset:2px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.locked{border:1px dashed var(--line);border-radius:12px;padding:18px;color:var(--muted);background:var(--card)}
+.code{font:800 2rem/1 Tajawal,monospace;letter-spacing:.3em;direction:ltr;background:var(--soft);padding:12px;border-radius:8px;text-align:center;margin:10px 0}
+.steps{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:12px}
+.dev{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg)}
+.dev b{display:block}
+.dev.p{border-color:var(--pri)}
+.dev.c{border-color:var(--warn)}
+.row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:8px 0}
+.row label{flex:1 1 140px}
+input[type=range]{flex:2 1 160px;accent-color:var(--pri)}
+.out{font-size:2.1rem;font-weight:800}
+.meter{height:12px;background:var(--line);border-radius:99px;overflow:hidden;margin:8px 0}
+.meter i{display:block;height:100%;background:var(--good);width:0;transition:width .3s}
+.tbl{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:620px}
+th,td{text-align:start;padding:10px 8px;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:500;font-size:.9rem}
+.pill{padding:2px 10px;border-radius:99px;font-size:.85rem;font-weight:700;border:1px solid currentColor}
+.low{color:var(--good)}.mid{color:var(--warn)}.high{color:var(--bad)}
+.msg{min-height:1.6em;color:var(--muted);margin-top:8px}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+  <div class="logo"><i></i> أمان</div>
+  <nav><a href="#roles">الأدوار</a><a href="#pair">ربط الأجهزة</a><a href="#calc">حاسبة وقت الشاشة</a><a href="#games">فحص الألعاب</a></nav>
+  <div class="who"><label for="roleSel">عرض تجريبي بصفة:</label>
+    <select id="roleSel"><option value="parent">ولي الأمر</option><option value="child">طفل</option></select></div>
+</div></header>
+
+<main class="wrap">
+<div class="hero">
+  <h1>حماية رقمية تبدأ من الأسرة</h1>
+  <p>ولي الأمر يرشد ويتابع، والطفل يتعلم ويطلب المساعدة. أمان يضع كل طرف في مكانه الصحيح.</p>
+  <div class="rule"><b>القاعدة الأساسية:</b> ولي الأمر يتحكم في الطفل، ولا يحدث العكس أبدًا.</div>
+</div>
+
+<section id="roles">
+  <h2>لوحتك الآن: <span id="roleName"></span></h2>
+  <p class="sub">كل ما يظهر هنا يمر عبر جدول صلاحيات واحد، وتتغير اللوحة حسب الدور.</p>
+  <div class="grid" id="dash"></div>
+</section>
+
+<section id="pair">
+  <h2>ربط جهاز الطفل</h2>
+  <p class="sub">الرمز يُنشأ من جهاز ولي الأمر فقط، ويُدخل في جهاز الطفل. صالح 10 دقائق ويُستخدم مرة واحدة.</p>
+  <div class="grid">
+    <div class="card" id="pairParent"></div>
+    <div class="card">
+      <h3>على جهاز الطفل</h3>
+      <p class="sub" style="margin-bottom:8px">أدخل الرمز الذي أعطاك إياه ولي الأمر.</p>
+      <div class="row"><input id="codeIn" inputmode="numeric" maxlength="6" placeholder="------" style="direction:ltr;text-align:center;flex:1;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)" aria-label="رمز الربط"><button class="btn" id="joinBtn">ربط هذا الجهاز كجهاز طفل</button></div>
+      <div class="msg" id="joinMsg" role="status"></div>
+    </div>
+  </div>
+  <div class="steps">
+    <div class="dev p"><b>جهاز ولي الأمر (الجهاز المراقِب)</b>يُنشئ الرمز، ويعرض التقارير والتنبيهات ويضبط القيود.</div>
+    <div class="dev c"><b>جهاز الطفل (الجهاز المُراقَب)</b>يُدخل الرمز فقط. لا يمكن ربط جهاز ولي الأمر كجهاز طفل.</div>
+  </div>
+</section>
+
+<section id="calc">
+  <h2>حاسبة وقت الشاشة</h2>
+  <p class="sub">متاحة للجميع. الطفل يرى وقته هو فقط.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="row"><label for="age">عمر الطفل</label><select id="age"><option value="5">3 – 5 سنوات</option><option value="9" selected>6 – 11 سنة</option><option value="14">12 – 15 سنة</option><option value="17">16 – 17 سنة</option></select></div>
+      <div class="row"><label for="g">ألعاب <b id="gv"></b></label><input type="range" id="g" min="0" max="6" step=".5" value="1.5"></div>
+      <div class="row"><label for="v">فيديو <b id="vv"></b></label><input type="range" id="v" min="0" max="6" step=".5" value="1"></div>
+      <div class="row"><label for="s">تواصل <b id="sv"></b></label><input type="range" id="s" min="0" max="6" step=".5" value=".5"></div>
+      <div class="row"><label for="l">دراسة وتعلّم <b id="lv"></b></label><input type="range" id="l" min="0" max="6" step=".5" value="1"></div>
+    </div>
+    <div class="card">
+      <h3>النتيجة</h3>
+      <div class="out" id="tot"></div>
+      <div class="meter" aria-hidden="true"><i id="bar"></i></div>
+      <div id="adv"></div>
+      <p class="sub" style="margin:10px 0 0" id="wk"></p>
+    </div>
+  </div>
+</section>
+
+<section id="games">
+  <h2>فحص الألعاب</h2>
+  <p class="sub">بيانات تجريبية للعرض. التصنيف حسب العمر والدردشة والمشتريات.</p>
+  <div class="row"><label for="fl">عرض:</label><select id="fl"><option value="all">كل الألعاب</option><option value="low">منخفضة الخطورة</option><option value="mid">متوسطة</option><option value="high">مرتفعة</option></select></div>
+  <div class="card tbl"><table><thead><tr><th>اللعبة</th><th>العمر</th><th>دردشة</th><th>مشتريات</th><th>التقييم</th><th>إجراء</th></tr></thead><tbody id="gb"></tbody></table></div>
+  <div class="msg" id="gm" role="status"></div>
+</section>
+</main>
+<footer><div class="wrap">نموذج تجريبي يعمل في المتصفح. الصلاحيات الحقيقية يجب أن تُفرض في الخادم وقاعدة البيانات، لا في هذه الصفحة.</div></footer>
+
+<script>
+/* سياسة الصلاحيات: مصدر واحد للحقيقة. الطفل لا يملك أي إجراء مراقبة أو تحكم. */
+var POLICY={
+  parent:["family.manage","pair.create","child.reports.view","child.alerts.view","controls.edit","requests.decide","games.decide","time.calc","rules.view"],
+  child:["time.own.view","rules.view","requests.create","help.ask","games.view","time.calc","pair.join"]
+};
+var role="parent";
+function can(a){return POLICY[role].indexOf(a)>-1}
+var $=function(i){return document.getElementById(i)};
+var state={code:null,exp:0,paired:false,requests:[{id:1,who:"سارة",min:30,st:"معلّق"}],blocked:{}};
+
+var GAMES=[
+{n:"بلوك كرافت",a:"6+",c:"محدودة",p:"لا",r:"low"},
+{n:"سباق النجوم",a:"9+",c:"نعم",p:"اختيارية",r:"mid"},
+{n:"حرب المدن",a:"12+",c:"نعم (مفتوحة)",p:"نعم",r:"high"},
+{n:"مزرعة الأصدقاء",a:"4+",c:"لا",p:"لا",r:"low"},
+{n:"ساحة القتال",a:"16+",c:"نعم (صوتية)",p:"نعم",r:"high"}];
+var RL={low:"منخفضة",mid:"متوسطة",high:"مرتفعة"};
+
+function esc(s){var d=document.createElement("div");d.textContent=s;return d.innerHTML}
+
+function renderDash(){
+  $("roleName").textContent=role==="parent"?"ولي الأمر":"طفل";
+  var h="";
+  if(role==="parent"){
+    h+='<div class="card"><h3>إدارة الأسرة</h3><p>أضف طفلًا أو ادعُه بدعوة آمنة.</p><a class="btn" href="#pair" style="text-decoration:none;display:inline-block">إنشاء رمز ربط</a></div>';
+    h+='<div class="card"><h3>أجهزة الأطفال</h3><p>'+(state.paired?"جهاز سارة: متصل":"لا توجد أجهزة مرتبطة بعد")+'</p></div>';
+    h+='<div class="card"><h3>التقارير</h3><p>سارة اليوم: 3 ساعات و30 دقيقة، منها ساعة تعلّم.</p></div>';
+    h+='<div class="card"><h3>التنبيهات</h3><p>محاولة تثبيت لعبة بتصنيف 16+ (ساحة القتال).</p></div>';
+    h+='<div class="card"><h3>الضوابط الأبوية</h3><div class="row"><label for="lim">حد يومي (ساعات)</label><input type="number" id="lim" min="1" max="8" value="3" style="width:80px"></div><button class="btn alt" id="saveLim">حفظ الضبط</button><div class="msg" id="limMsg"></div></div>';
+    h+='<div class="card" id="reqCard"><h3>طلبات وقت إضافي</h3><div id="reqList"></div></div>';
+  }else{
+    h+='<div class="card"><h3>وقتي اليوم</h3><p>استخدمت 3 ساعات و30 دقيقة من أصل 4.</p><div class="meter"><i style="width:87%"></i></div></div>';
+    h+='<div class="card"><h3>قواعد العائلة</h3><p>لا شاشات بعد الساعة 9 مساءً، والواجب أولًا، والألعاب بعد الدراسة.</p></div>';
+    h+='<div class="card"><h3>أنشطة تعلّم</h3><p>تحدي الحروف، قراءة قصة قصيرة، لغز الرياضيات اليومي.</p></div>';
+    h+='<div class="card"><h3>طلباتي</h3><button class="btn" id="askTime">اطلب 30 دقيقة إضافية</button> <button class="btn alt" id="askHelp">أحتاج مساعدة</button><div class="msg" id="askMsg" role="status"></div></div>';
+  }
+  $("dash").innerHTML=h;
+  if(role==="parent"){
+    $("saveLim").onclick=function(){
+      if(!can("controls.edit")){return}
+      var v=+$("lim").value; if(!(v>=1&&v<=8)){$("limMsg").textContent="أدخل رقمًا بين 1 و8.";return}
+      $("limMsg").textContent="تم حفظ الحد: "+v+" ساعات (تجريبي).";
+    };
+    renderReqs();
+  }else{
+    $("askTime").onclick=function(){
+      if(!can("requests.create"))return;
+      state.requests.push({id:Date.now(),who:"سارة",min:30,st:"معلّق"});
+      $("askMsg").textContent="أُرسل طلبك إلى ولي الأمر.";
+    };
+    $("askHelp").onclick=function(){$("askMsg").textContent="أُرسل طلب المساعدة إلى ولي الأمر."};
+  }
+}
+function renderReqs(){
+  var el=$("reqList"); if(!el)return;
+  el.innerHTML=state.requests.map(function(r){
+    var b=r.st==="معلّق"?'<button class="btn" data-d="ok" data-i="'+r.id+'">موافقة</button> <button class="btn alt" data-d="no" data-i="'+r.id+'">رفض</button>':'<b>'+esc(r.st)+'</b>';
+    return '<div class="row"><span>'+esc(r.who)+': '+r.min+' دقيقة</span><span>'+b+'</span></div>';
+  }).join("")||"<p>لا توجد طلبات.</p>";
+  el.querySelectorAll("button").forEach(function(b){b.onclick=function(){
+    if(!can("requests.decide"))return;
+    var r=state.requests.filter(function(x){return String(x.id)===b.dataset.i})[0];
+    r.st=b.dataset.d==="ok"?"تمت الموافقة":"مرفوض";renderReqs();
+  }});
+}
+
+function renderPair(){
+  var el=$("pairParent");
+  if(!can("pair.create")){
+    el.innerHTML='<h3>على جهاز ولي الأمر</h3><div class="locked">إنشاء رمز الربط متاح لولي الأمر فقط.</div>';return;
+  }
+  el.innerHTML='<h3>على جهاز ولي الأمر</h3><p class="sub" style="margin-bottom:6px">أنشئ الرمز ثم أعطه لطفلك.</p><div class="code" id="codeBox">——</div><button class="btn" id="genBtn">إنشاء رمز جديد</button><div class="msg" id="pMsg"></div>';
+  $("genBtn").onclick=function(){
+    if(!can("pair.create"))return;
+    var a=new Uint32Array(1);crypto.getRandomValues(a);
+    state.code=String(100000+(a[0]%900000));state.exp=Date.now()+600000;
+    $("codeBox").textContent=state.code;$("pMsg").textContent="صالح 10 دقائق ولمرة واحدة.";
+  };
+}
+$("joinBtn").onclick=function(){
+  var m=$("joinMsg");
+  if(!can("pair.join")){m.textContent="هذا الإجراء غير متاح لحسابك.";return}
+  if(role==="parent"){m.textContent="حساب ولي الأمر لا يُربط كجهاز طفل. استخدم جهاز الطفل لإدخال الرمز.";return}
+  var v=$("codeIn").value.trim();
+  if(state.code&&v===state.code&&Date.now()<state.exp){state.code=null;state.paired=true;m.textContent="تم الربط: هذا الجهاز الآن جهاز طفل تحت إشراف ولي الأمر.";}
+  else m.textContent="الرمز غير صحيح أو منتهي.";
+};
+
+var ids=["g","v","s","l"];
+function calc(){
+  var age=+$("age").value,max=age<=5?1:age<=9?2:age<=14?3:4;
+  var rec=ids.map(function(i){return +$(i).value}),t=0;
+  ids.forEach(function(i){$(i+"v").textContent=(+$(i).value)+" ساعة"});
+  var leisure=rec[0]+rec[1]+rec[2];t=leisure+rec[3];
+  $("tot").textContent=t+" ساعة يوميًا";
+  var p=Math.min(100,leisure/max*100),bar=$("bar");bar.style.width=p+"%";
+  bar.style.background=p<=75?"var(--good)":p<=100?"var(--warn)":"var(--bad)";
+  $("adv").textContent=leisure<=max?"وقت الترفيه ("+leisure+" س) ضمن الحد المقترح لهذا العمر وهو "+max+" ساعات.":"وقت الترفيه ("+leisure+" س) أعلى من الحد المقترح ("+max+" س). جرّب تقليل الألعاب أو الفيديو.";
+  $("wk").textContent="الأسبوع: "+(t*7)+" ساعة إجمالًا، منها "+(rec[3]*7)+" للتعلّم.";
+}
+ids.concat(["age"]).forEach(function(i){$(i).oninput=calc});
+
+function renderGames(){
+  var f=$("fl").value;
+  $("gb").innerHTML=GAMES.filter(function(g){return f==="all"||g.r===f}).map(function(g,i){
+    var act=can("games.decide")?(state.blocked[g.n]?'<button class="btn alt" data-g="'+esc(g.n)+'">السماح</button>':'<button class="btn bad" data-g="'+esc(g.n)+'">حظر</button>'):'<button class="btn alt" data-q="'+esc(g.n)+'">اطلب الإذن</button>';
+    return '<tr><td><b>'+esc(g.n)+'</b>'+(state.blocked[g.n]?' (محظورة)':'')+'</td><td>'+g.a+'</td><td>'+g.c+'</td><td>'+g.p+'</td><td><span class="pill '+g.r+'">'+RL[g.r]+'</span></td><td>'+act+'</td></tr>';
+  }).join("");
+  $("gb").querySelectorAll("button").forEach(function(b){b.onclick=function(){
+    if(b.dataset.g){if(!can("games.decide"))return;state.blocked[b.dataset.g]=!state.blocked[b.dataset.g];renderGames();}
+    else{$("gm").textContent="أُرسل طلب الإذن لـ "+b.dataset.q+" إلى ولي الأمر."}
+  }});
+}
+$("fl").onchange=renderGames;
+
+$("roleSel").onchange=function(){role=this.value==="child"?"child":"parent";renderAll()};
+function renderAll(){renderDash();renderPair();renderGames();$("gm").textContent="";$("joinMsg").textContent=""}
+renderAll();calc();
+</script>
+</body>
+</html>
